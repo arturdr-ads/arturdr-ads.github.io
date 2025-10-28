@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artur Reinhardt - Full Stack Developer & AI Engineer</title>
+    <meta name="description" content="Full Stack Developer & AI Engineer especializado em React, Node.js, Python e ecossistemas de IA. Criador de soluções inovadoras e open source.">
+    <meta name="keywords" content="desenvolvedor, full stack, AI, react, node.js, python, mcp, machine learning">
+    <meta name="author" content="Artur Reinhardt">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://artur-reinhardt.github.io">
+    <meta property="og:title" content="Artur Reinhardt - Full Stack Developer & AI Engineer">
+    <meta property="og:description" content="Full Stack Developer & AI Engineer especializado em React, Node.js, Python e ecossistemas de IA">
+    <meta property="og:image" content="https://github.com/arturdr-dev.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://artur-reinhardt.github.io">
+    <meta property="twitter:title" content="Artur Reinhardt - Full Stack Developer & AI Engineer">
+    <meta property="twitter:description" content="Full Stack Developer & AI Engineer especializado em React, Node.js, Python e ecossistemas de IA">
+    <meta property="twitter:image" content="https://github.com/arturdr-dev.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">Carregando...</div>
+        </div>
+    </div>
+
+    <!-- Particle Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape-4"></div>
+            <div class="shape-5"></div>
+            <div class="shape-6"></div>
+            <div class="shape-7"></div>
+            <div class="shape-8"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <span>AR</span>
+                </div>
+                <span class="logo-text">Artur Reinhardt</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Início</a>
+                <a href="#about" class="nav-link">Sobre</a>
+                <a href="#projects" class="nav-link">Projetos</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contato</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="greeting">
+                    <span class="greeting-text">Olá, eu sou</span>
+                    <div class="greeting-emoji">👋</div>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-main">Artur Reinhardt</span>
+                    <div class="title-line"></div>
+                    <span class="title-subtitle">Full Stack Developer & AI Engineer</span>
+                </h1>
+                <div class="typing-container">
+                    <span class="static-text">Eu construo</span>
+                    <span class="dynamic-text" id="dynamicText">soluções inovadoras</span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    Apaixonado por transformar ideias complexas em produtos digitais elegantes.
+                    Especializado em IA, sistemas escaláveis e desenvolvimento de ponta a ponta.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Projetos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-label">Anos XP</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="1000">0</div>
+                        <div class="stat-label">Commits</div>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        <span class="btn-icon">
+                            <i class="fas fa-folder-open"></i>
+                        </span>
+                        <span class="btn-text">Ver Projetos</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span class="btn-icon">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <span class="btn-text">Contato</span>
+                    </a>
+                    <a href="https://github.com/arturdr-dev" target="_blank" class="btn btn-outline">
+                        <span class="btn-icon">
+                            <i class="fab fa-github"></i>
+                        </span>
+                        <span class="btn-text">GitHub</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="profile-3d">
+                    <div class="profile-card-3d">
+                        <div class="profile-image-wrapper">
+                            <img src="https://github.com/arturdr-dev.png" alt="Artur Reinhardt" class="profile-image">
+                            <div class="profile-glow"></div>
+                        </div>
+                        <div class="profile-info">
+                            <h3>Artur Reinhardt</h3>
+                            <p class="profile-title">Full Stack Developer</p>
+                            <div class="profile-links">
+                                <a href="https://github.com/arturdr-dev" target="_blank" class="profile-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/arturdr" target="_blank" class="profile-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://twitter.com/arturdr" target="_blank" class="profile-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-code">
+                    <div class="code-line">&lt;div className="innovation"&gt;</div>
+                    <div class="code-line">&nbsp;&nbsp;const future = build();</div>
+                    <div class="code-line">&lt;/div&gt;</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text">Role para explorar</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-bg">SOBRE MIM</span>
+                    <span class="title-text">SOBRE MIM</span>
+                </h2>
+                <p class="section-subtitle">Conheça minha jornada e especializações</p>
+            </div>
+            <div class="about-content">
+                <div class="about-cards">
+                    <div class="about-card" data-aos="fade-up">
+                        <div class="card-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Desenvolvedor Full Stack</h3>
+                        <p>
+                            Domínio completo do desenvolvimento web moderno, desde frontend
+                            interativo até o backend robusto, criando aplicações completas
+                            desde a concepção até o deploy em produção.
+                        </p>
+                        <div class="card-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                        </div>
+                    </div>
+                    <div class="about-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Especialista em IA & ML</h3>
+                        <p>
+                            Trabalhando na vanguarda da inteligência artificial, integrando
+                            múltiplos modelos de IA e desenvolvendo soluções que
+                            transformam dados em insights valiosos.
+                        </p>
+                        <div class="card-tech">
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">OpenAI</span>
+                            <span class="tech-badge">TensorFlow</span>
+                        </div>
+                    </div>
+                    <div class="about-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h3>Open Source Contributor</h3>
+                        <p>
+                            Acredito no poder do código aberto para impulsionar a inovação.
+                            Contribuo ativamente para projetos importantes e mantenho
+                            repositórios próprios.
+                        </p>
+                        <div class="card-tech">
+                            <span class="tech-tag">GitHub</span>
+                            <span class="tech-tag">MCP</span>
+                            <span class="tech-tag">OSS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight-item" data-aos="zoom-in">
+                        <div class="highlight-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Inovação</h4>
+                        <p>Sempre buscando novas tecnologias e abordagens criativas</p>
+                    </div>
+                    <div class="highlight-item" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="highlight-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Colaboração</h4>
+                        <p>Trabalho em equipe e compartilhamento de conhecimento</p>
+                    </div>
+                    <div class="highlight-item" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="highlight-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4>Excelência</h4>
+                        <p>Compromisso com qualidade e melhores práticas</p>
+                    </div>
+                    <div class="highlight-item" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="highlight-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Crescimento</h4>
+                        <p>Aprendizado constante e evolução profissional</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-bg">PROJETOS</span>
+                    <span class="title-text">PROJETOS</span>
+                </h2>
+                <p class="section-subtitle">Minhas criações e contribuições mais recentes</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-header">
+                        <div class="project-number">01</div>
+                        <div class="project-links">
+                            <a href="https://github.com/arturdr-dev/mcp-central-dashboard" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="project-title">MCP Central Dashboard</h3>
+                        <p class="project-description">
+                            Plataforma modular e universal para gerenciamento centralizado
+                            do ecossistema MCP com suporte a múltiplos modelos de IA,
+                            workflows automatizados e marketplace integrado.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">AI</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>127</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-code-branch"></i>
+                                <span>23</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-eye"></i>
+                                <span>1.2k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-header">
+                        <div class="project-number">02</div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="project-title">AI Content Generator</h3>
+                        <p class="project-description">
+                            Sistema automatizado de geração de conteúdo utilizando
+                            múltiplos modelos de IA com template engine, otimização SEO
+                            e integração com plataformas de publicação.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">FastAPI</span>
+                            <span class="tech-badge">OpenAI</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>89</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-code-branch"></i>
+                                <span>15</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-eye"></i>
+                                <span>890</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-header">
+                        <div class="project-number">03</div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3 class="project-title">E-commerce Platform</h3>
+                        <p class="project-description">
+                            Plataforma e-commerce completa com dashboard administrativo,
+                            sistema de pagamentos, gestão de estoque e analytics
+                            em tempo real.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Next.js</span>
+                            <span class="tech-badge">TypeScript</span>
+                            <span class="tech-badge">Stripe</span>
+                            <span class="tech-badge">MongoDB</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>156</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-code-branch"></i>
+                                <span>42</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-eye"></i>
+                                <span>2.3k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-cta" data-aos="fade-up">
+                <a href="https://github.com/arturdr-dev" target="_blank" class="btn btn-secondary">
+                    <span class="btn-icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span class="btn-text">Ver Todos os Projetos</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-bg">SKILLS</span>
+                    <span class="title-text">SKILLS</span>
+                </h2>
+                <p class="section-subtitle">Minhas principais competências técnicas</p>
+            </div>
+            <div class="skills-container">
+                <div class="skills-categories">
+                    <div class="skill-category active" data-category="frontend">
+                        <div class="category-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <span>Frontend</span>
+                    </div>
+                    <div class="skill-category" data-category="backend">
+                        <div class="category-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <span>Backend</span>
+                    </div>
+                    <div class="skill-category" data-category="ai">
+                        <div class="category-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <span>AI & ML</span>
+                    </div>
+                    <div class="skill-category" data-category="devops">
+                        <div class="category-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <span>DevOps</span>
+                    </div>
+                </div>
+                <div class="skills-content">
+                    <div class="skills-grid" id="frontend-skills">
+                        <div class="skill-item" data-aos="fade-up">
+                            <div class="skill-header">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                                <div class="skill-info">
+                                    <h4>React.js</h4>
+                                    <div class="skill-level">
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 90%"></div>
+                                        </div>
+                                        <span class="skill-percent">90%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="50">
+                            <div class="skill-header">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicons/icons/typescript/typescript-original.svg" alt="TypeScript">
+                                <div class="skill-info">
+                                    <h4>TypeScript</h4>
+                                    <div class="skill-level">
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 85%"></div>
+                                        </div>
+                                        <span class="skill-percent">85%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="skill-header">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicons/nextjs-original.svg" alt="Next.js">
+                                <div class="skill-info">
+                                    <h4>Next.js</h4>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 80%"></div>
+                                        <span class="skill-percent">80%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div>
+                        <div class="skills-grid" id="backend-skills" style="display: none;">
+                        <div class="skill-item" data-aos="fade-up">
+                            <div class="skill-header">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicons/nodejs-original.svg" alt="Node.js">
+                                <div class="skill-info">
+                                    <h4>Node.js</h4>
+                                    <div>
+                                        <div class="skill-level">
+                                            <div class="skill-progress" style="width: 92%"></div>
+                                        <span class="skill-percent">92%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-item" data-aos="fade-up" data-aos-delay="50">
+                                <div class="skill-header">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/python/python-original.svg" alt="Python">
+                                    <div class="skill-info">
+                                        <h4>Python</h4>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 87%"></div>
+                                        <span class="skill-percent">87%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                        <div class="skills-grid" id="ai-skills" style="display: none;">
+                        <div class="skill-item" data-aos="fade-up">
+                            <div class="skill-header">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+                                <div class="skill-info">
+                                    <h4>TensorFlow</h4>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 75%"></div>
+                                        <span class="skill-percent">75%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="skills-grid" id="devops-skills" style="display: none;">
+                        <div class="skill-item data-aos="fade-up">
+                            <div class="skill-header">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/docker-original.svg" alt="Docker">
+                                <div class="skill-info">
+                                    <h4>Docker</h4>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 80%"></div>
+                                        <span class="skill-percent">80%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-bg">CONTATO</span>
+                    <span class="title-text">CONTATO</span>
+                </h2>
+                <p class="section-subtitle">Vamos construir algo incrível juntos</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card" data-aos="fade-up">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>arturdr@example.com</p>
+                            <a href="mailto:arturdr@example.com" class="contact-link">Enviar mensagem</a>
+                        </div>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>LinkedIn</h3>
+                            <p>/in/arturdr</p>
+                            <a href="https://linkedin.com/in/arturdr" target="_blank" class="contact-link">Conectar</a>
+                        </div>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>GitHub</h3>
+                            <p>@arturdr-dev</p>
+                            <a href="https://github.com/arturdr-dev" target="_blank" class="contact-link">Seguir</a>
+                        </div>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="contact-icon">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Twitter</h3>
+                            <p>@arturdr</p>
+                            <a href="https://twitter.com/arturdr" target="_blank" class="contact-link">Seguir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Artur Reinhardt. Todos os direitos reservados.</p>
+                    <p>Feito com ❤️ e muito ☕</p>
+                </div>
+                <div>
+                <div class="footer-social">
+                    <a href="https://github.com/arturdr-dev" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/arturdr" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com/arturdr" target="_blank" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/particles.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html><!-- Deployment update seg 27 out 2025 22:04:22 -03 --><
