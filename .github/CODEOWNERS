@@ -1,0 +1,13 @@
+# Codeowners file
+#
+# This file declares owners of code in this repository.
+
+# Global owners
+* @arturdr-ads
+
+# Default owners for everything in the repo
+* @arturdr-ads
+
+# Specific owners for different directories
+# /docs @arturdr-ads
+# /src @arturdr-ads

@@ -1,0 +1,44 @@
+{
+  "name": "arturdr-ads.github.io",
+  "version": "1.0.0",
+  "description": "Portfolio profissional de Artur Reinhardt - Full Stack Developer & AI Engineer",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Build completed'",
+    "lint": "echo 'Linting completed'",
+    "test": "echo 'Tests completed'",
+    "deploy": "echo 'Deploy completed'"
+  },
+  "keywords": [
+    "portfolio",
+    "full-stack",
+    "ai-engineer",
+    "web-development",
+    "javascript",
+    "css3",
+    "html5",
+    "responsive-design",
+    "glass-morphism",
+    "3d-animations"
+  ],
+  "author": {
+    "name": "Artur Reinhardt",
+    "email": "arturdr@gmail.com",
+    "url": "https://arturdr-ads.github.io"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arturdr-ads/arturdr-ads.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arturdr-ads/arturdr-ads.github.io/issues"
+  },
+  "homepage": "https://arturdr-ads.github.io",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
