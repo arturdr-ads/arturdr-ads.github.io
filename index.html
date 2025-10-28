@@ -282,196 +282,162 @@
             opacity: 0.8;
         }
 
-        /* Robot 3D Styles */
-        .robot-container {
-            position: relative;
-            width: 150px;
-            height: 200px;
+        /* Professional Profile Styles */
+        .profile-section {
             margin: 2rem auto;
+            max-width: 500px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #667eea);
+            background-size: 300% 100%;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-image-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .profile-image-container:hover .profile-image {
+            transform: scale(1.1);
+        }
+
+        .profile-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 50%;
+        }
+
+        .profile-image-container:hover .profile-overlay {
+            opacity: 1;
+        }
+
+        .profile-info {
+            text-align: center;
+        }
+
+        .profile-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-badge {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            color: #22d3ee;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
             animation: float 3s ease-in-out infinite;
         }
 
-        .robot {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            animation: robotRotate 8s linear infinite;
+        .profile-badge:nth-child(2) {
+            animation-delay: 0.5s;
         }
 
-        .robot-head {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            border: 3px solid rgba(255, 255, 255, 0.3);
+        .profile-badge:nth-child(3) {
+            animation-delay: 1s;
         }
 
-        .robot-eyes {
-            position: absolute;
-            top: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-        }
-
-        .robot-eye {
-            width: 16px;
-            height: 16px;
-            background: #fff;
-            border-radius: 50%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .robot-pupil {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #333;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: lookAround 4s ease-in-out infinite;
-        }
-
-        .robot-mouth {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 8px;
-            background: #333;
-            border-radius: 0 0 15px 15px;
-        }
-
-        .robot-antenna {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 20px;
-            background: #667eea;
-        }
-
-        .robot-antenna-ball {
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 12px;
-            height: 12px;
-            background: #ffd700;
-            border-radius: 50%;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        .robot-body {
-            position: absolute;
-            top: 85px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            border: 3px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .robot-screen {
-            position: absolute;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 40px;
-            background: #1a1a2e;
-            border-radius: 8px;
-            border: 2px solid #16213e;
-            overflow: hidden;
-        }
-
-        .robot-code {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            color: #0f0;
-            font-family: monospace;
-            font-size: 8px;
-            animation: codeScroll 3s linear infinite;
-        }
-
-        .robot-arms {
-            position: absolute;
-            top: 90px;
-            width: 140px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .robot-arm {
-            width: 20px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
+        .profile-badge:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+            transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
-        .robot-arm-left {
-            animation: armWave 2s ease-in-out infinite;
-            transform-origin: top center;
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
         }
 
-        .robot-arm-right {
-            animation: armWave 2s ease-in-out infinite 0.5s;
-            transform-origin: top center;
+        .stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            flex: 1;
         }
 
-        /* Robot Animations */
+        .stat:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* Profile Animations */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes robotRotate {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); }
-        }
-
-        @keyframes lookAround {
-            0%, 100% { transform: translate(-50%, -50%); }
-            25% { transform: translate(-30%, -60%); }
-            50% { transform: translate(-70%, -40%); }
-            75% { transform: translate(-50%, -70%); }
-        }
-
-        @keyframes glow {
-            0% { box-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 15px #ffd700; }
-            100% { box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700; }
-        }
-
-        @keyframes codeScroll {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(-100%); }
-        }
-
-        @keyframes armWave {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-20deg); }
-            75% { transform: rotate(20deg); }
+            50% { transform: translateY(-5px); }
         }
 
         @media (max-width: 768px) {
@@ -493,26 +459,45 @@
                 text-align: center;
             }
 
-            .robot-container {
-                width: 120px;
-                height: 160px;
+            .profile-section {
                 margin: 1.5rem auto;
+                max-width: 350px;
             }
 
-            .robot-head {
-                width: 60px;
-                height: 60px;
+            .profile-card {
+                padding: 1.5rem;
             }
 
-            .robot-body {
-                width: 80px;
-                height: 60px;
-                top: 65px;
+            .profile-image-container {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto 1.5rem;
             }
 
-            .robot-arms {
-                width: 120px;
-                top: 70px;
+            .profile-badges {
+                gap: 0.3rem;
+                margin-bottom: 1rem;
+            }
+
+            .profile-badge {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .profile-stats {
+                gap: 0.5rem;
+            }
+
+            .stat {
+                padding: 0.8rem 0.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.2rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -522,39 +507,33 @@
         <header>
             <h1>👋 Olá! Eu sou Artur Reinhardt</h1>
 
-            <!-- Robot 3D Animation -->
-            <div class="robot-container">
-                <div class="robot">
-                    <div class="robot-head">
-                        <div class="robot-antenna">
-                            <div class="robot-antenna-ball"></div>
-                        </div>
-                        <div class="robot-eyes">
-                            <div class="robot-eye">
-                                <div class="robot-pupil"></div>
-                            </div>
-                            <div class="robot-eye">
-                                <div class="robot-pupil"></div>
-                            </div>
-                        </div>
-                        <div class="robot-mouth"></div>
+            <!-- Professional Profile Section -->
+            <div class="profile-section">
+                <div class="profile-card">
+                    <div class="profile-image-container">
+                        <img src="assets/profile.jpg" alt="Artur Reinhardt" class="profile-image">
+                        <div class="profile-overlay"></div>
                     </div>
-                    <div class="robot-body">
-                        <div class="robot-screen">
-                            <div class="robot-code">
-                                &lt;script&gt;<br>
-                                const robot = {<br>
-                                &nbsp;&nbsp;name: 'Bender',<br>
-                                &nbsp;&nbsp;skills: ['JS', 'PY'],<br>
-                                &nbsp;&nbsp;mood: 'happy'<br>
-                                };<br>
-                                robot.code();<br>
+                    <div class="profile-info">
+                        <div class="profile-badges">
+                            <span class="profile-badge">🚀 Full Stack</span>
+                            <span class="profile-badge">🤖 AI Engineer</span>
+                            <span class="profile-badge">☁️ Cloud Specialist</span>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <span class="stat-number">5+</span>
+                                <span class="stat-label">Anos</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Projetos</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">∞</span>
+                                <span class="stat-label">Café ☕</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="robot-arms">
-                        <div class="robot-arm robot-arm-left"></div>
-                        <div class="robot-arm robot-arm-right"></div>
                     </div>
                 </div>
             </div>
@@ -672,95 +651,31 @@
     </div>
 
     <script>
-        // Robot interaction
-        let robotMood = 'happy';
-        const robotMessages = [
-            'Olá! Eu sou o Robô Dev! 🤖',
-            'Vamos programar juntos! 💻',
-            'JavaScript é minha linguagem favorita!',
-            'Python também é massa! 🐍',
-            'Debugando a vida... 🐛',
-            'Compilando felicidade! ✨',
-            'Full Stack na veia! 🚀',
-            'AI & ML rocks! 🤖',
-            'Café + Código = ❤️',
-            'Sempre aprendendo algo novo! 📚'
-        ];
-
-        // Robot click interaction
-        document.querySelector('.robot-container').addEventListener('click', function() {
-            const robotCode = document.querySelector('.robot-code');
-            const randomMessage = robotMessages[Math.floor(Math.random() * robotMessages.length)];
-            robotCode.innerHTML = randomMessage.replace(/ /g, '&nbsp;').replace(/!/g, '!<br>');
-
-            // Make robot happy animation
-            const robot = document.querySelector('.robot');
-            robot.style.animation = 'none';
-            setTimeout(() => {
-                robot.style.animation = 'robotRotate 8s linear infinite, bounce 0.5s ease';
-            }, 10);
+        // Profile interaction
+        const profileCard = document.querySelector('.profile-card');
+        profileCard.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-15px) scale(1.03)';
         });
 
-        // Robot hover effects
-        const robotContainer = document.querySelector('.robot-container');
-        robotContainer.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.1)';
+        profileCard.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
         });
 
-        robotContainer.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
+        // Badge hover effects
+        document.querySelectorAll('.profile-badge').forEach((badge, index) => {
+            badge.addEventListener('mouseenter', function() {
+                this.style.animation = 'none';
+                this.style.transform = 'translateY(-5px) scale(1.1)';
+            });
+
+            badge.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                setTimeout(() => {
+                    this.style.animation = `float 3s ease-in-out infinite`;
+                    this.style.animationDelay = `${index * 0.5}s`;
+                }, 100);
+            });
         });
-
-        // Update robot code display
-        function updateRobotCode() {
-            const robotCode = document.querySelector('.robot-code');
-            const codes = [
-                `&lt;script&gt;<br>
-                const dev = {<br>
-                &nbsp;&nbsp;name: 'Artur',<br>
-                &nbsp;&nbsp;skills: ['JS', 'PY'],<br>
-                &nbsp;&nbsp;coding: true<br>
-                };<br>
-                dev.create();`,
-
-                `function createMagic() {<br>
-                &nbsp;&nbsp;return '✨';<br>
-                }<br>
-                console.log(createMagic());`,
-
-                `class Developer {<br>
-                &nbsp;&nbsp;constructor() {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;this.passion = '∞';<br>
-                &nbsp;&nbsp;}<br>
-                }`,
-
-                `const portfolio = {<br>
-                &nbsp;&nbsp;design: 'modern',<br>
-                &nbsp;&nbsp;responsive: true,<br>
-                &nbsp;&nbsp;awesome: true<br>
-                };`
-            ];
-
-            let codeIndex = 0;
-            setInterval(() => {
-                robotCode.innerHTML = codes[codeIndex];
-                codeIndex = (codeIndex + 1) % codes.length;
-            }, 4000);
-        }
-
-        // Add bounce animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes bounce {
-                0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotateY(0deg); }
-                40% { transform: translateY(-20px) rotateY(180deg); }
-                60% { transform: translateY(-10px) rotateY(270deg); }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Initialize robot code animation
-        updateRobotCode();
 
         // Smooth scrolling para links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -799,11 +714,12 @@
             observer.observe(section);
         });
 
-        // Robot welcome message
+        // Add entrance animation to profile
         setTimeout(() => {
-            const robotCode = document.querySelector('.robot-code');
-            robotCode.innerHTML = 'Olá! Clique em mim! 🤖<br>Eu tenho mensagens especiais para você!';
-        }, 2000);
+            const profileCard = document.querySelector('.profile-card');
+            profileCard.style.opacity = '1';
+            profileCard.style.transform = 'translateY(0)';
+        }, 500);
     </script>
 </body>
 </html>

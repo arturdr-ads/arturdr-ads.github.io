@@ -1,5 +1,10 @@
 <div align="center">
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arturdr-ads/arturdr-ads.github.io/main/assets/profile.jpg">
+  <img src="https://raw.githubusercontent.com/arturdr-ads/arturdr-ads.github.io/main/assets/profile.jpg" alt="Artur Reinhardt" width="200" style="border-radius: 50%; border: 3px solid #667eea; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);">
+</picture>
+
 # 👋 Olá! Eu sou Artur Reinhardt
 
 [![GitHub followers](https://img.shields.io/github/followers/arturdr-ads?style=for-the-badge&logo=github&logoColor=white&labelColor=171515&color=181717)](https://github.com/arturdr-ads)
