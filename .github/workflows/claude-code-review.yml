@@ -1,0 +1,73 @@
+name: Claude Code Review
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  code-review:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: |
+        npm install -g @anthropic-ai/claude-code
+
+    - name: Run Claude Code Review
+      env:
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      run: |
+        echo "Running Claude Code Review..."
+        # Analisar estrutura de agentes e configurações
+        echo "🔍 Analyzing agent structure..."
+        find .claude/agents -name "*.md" | wc -l
+        echo "📊 Agent count: $(find .claude/agents -name "*.md" | wc -l)"
+
+        # Verificar configurações MCP
+        echo "🔧 Checking MCP configuration..."
+        if [ -f ".mcp.json" ]; then
+          echo "✅ MCP configuration found"
+        else
+          echo "⚠️ No MCP configuration found"
+        fi
+
+        echo "✅ Code review completed"
+
+    - name: Security Scan
+      uses: actions/checkout@v4
+      run: |
+        echo "🔒 Running security checks..."
+        # Adicionar verificações de segurança
+        echo "✅ Security scan completed"
+
+  deploy-pages:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: code-review
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '.'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

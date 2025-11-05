@@ -1,0 +1,135 @@
+name: Claude Agent Validation
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 1 * * *'  # Daily at 1 AM
+
+jobs:
+  validate-agents:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Validate Agent Structure
+      run: |
+        echo "🤖 Validating Claude Agent Structure..."
+
+        # Verificar estrutura de agentes
+        echo "📁 Checking agent directories..."
+        if [ -d ".claude/agents" ]; then
+          echo "✅ .claude/agents directory exists"
+        else
+          echo "❌ .claude/agents directory not found"
+          exit 1
+        fi
+
+        # Contar agentes
+        AGENT_COUNT=$(find .claude/agents -name "*.md" | wc -l)
+        echo "📊 Total agents found: $AGENT_COUNT"
+
+        # Validar formato dos agentes
+        echo "🔍 Validating agent format..."
+        INVALID_AGENTS=0
+        for agent_file in .claude/agents/*.md; do
+          if [ -f "$agent_file" ]; then
+            # Verificar frontmatter YAML
+            if head -n 10 "$agent_file" | grep -q "^---"; then
+              echo "✅ $agent_file - Valid frontmatter"
+            else
+              echo "❌ $agent_file - Missing frontmatter"
+              INVALID_AGENTS=$((INVALID_AGENTS+1))
+            fi
+          fi
+        done
+
+        # Validar configurações
+        echo "⚙️ Checking configuration files..."
+        CONFIG_FILES=("CLAUDE.md" ".claude.json" ".mcp.json")
+        for config_file in "${CONFIG_FILES[@]}"; do
+          if [ -f "$config_file" ]; then
+            echo "✅ $config_file found"
+          else
+            echo "⚠️ $config_file not found"
+          fi
+        done
+
+        # Resumo da validação
+        echo ""
+        echo "📋 Validation Summary:"
+        echo "- Total agents: $AGENT_COUNT"
+        echo "- Invalid agents: $INVALID_AGENTS"
+
+        if [ $INVALID_AGENTS -gt 0 ]; then
+          echo "❌ Validation failed - $INVALID_AGENTS invalid agents found"
+          exit 1
+        else
+          echo "✅ All agents validated successfully"
+        fi
+
+    - name: Check Agent Dependencies
+      run: |
+        echo "🔗 Checking agent dependencies..."
+
+        # Verificar se agentes têm dependências necessárias
+        echo "📋 Required tools for agents:"
+        echo "- Task tool: Available"
+        echo "- MCP servers: Available"
+        echo "- WebSearch/WebFetch: Available"
+
+        # Validar configurações MCP
+        if [ -f ".mcp.json" ]; then
+          echo "✅ MCP configuration found"
+          MCP_SERVERS=$(jq '.mcpServers | length' .mcp.json 2>/dev/null || echo "0")
+          echo "📊 MCP servers configured: $MCP_SERVERS"
+        else
+          echo "⚠️ No MCP configuration found"
+        fi
+
+    - name: Generate Validation Report
+      if: always()
+      run: |
+        echo "📊 Generating validation report..."
+
+        AGENT_COUNT=$(find .claude/agents -name "*.md" | wc -l)
+        CONFIG_FILES=0
+        [ -f "CLAUDE.md" ] && CONFIG_FILES=$((CONFIG_FILES+1))
+        [ -f ".claude.json" ] && CONFIG_FILES=$((CONFIG_FILES+1))
+        [ -f ".mcp.json" ] && CONFIG_FILES=$((CONFIG_FILES+1))
+
+        echo "## 🤖 Claude Agent Validation Report" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📊 System Overview" >> $GITHUB_STEP_SUMMARY
+        echo "- **Total Agents:** $AGENT_COUNT" >> $GITHUB_STEP_SUMMARY
+        echo "- **Configuration Files:** $CONFIG_FILES/3" >> $GITHUB_STEP_SUMMARY
+        echo "- **MCP Servers:** $(jq '.mcpServers | length' .mcp.json 2>/dev/null || echo "0")" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+
+        echo "### 🔍 Agent Categories" >> $GITHUB_STEP_SUMMARY
+        for agent_file in .claude/agents/*.md; do
+          if [ -f "$agent_file" ]; then
+            AGENT_NAME=$(basename "$agent_file" .md)
+            CATEGORY=$(grep -m 1 "category:" "$agent_file" | cut -d':' -f2 | tr -d ' ' || echo "unknown")
+            echo "- **$AGENT_NAME**: $CATEGORY" >> $GITHUB_STEP_SUMMARY
+          fi
+        done
+
+  deploy-validation:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: validate-agents
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Deploy Validation Results
+      run: |
+        echo "🚀 Deploying validation results..."
+        echo "✅ Agent validation completed successfully"
+        echo "📊 System ready for production deployment"

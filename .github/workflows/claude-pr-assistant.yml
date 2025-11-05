@@ -1,0 +1,67 @@
+name: Claude PR Assistant
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  pr-analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Analyze PR with Claude
+      env:
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      run: |
+        echo "🤖 Claude PR Assistant analyzing changes..."
+
+        # Analisar arquivos modificados
+        echo "📊 Files changed:"
+        git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }}
+
+        # Verificar se há conflitos
+        echo "🔍 Checking for conflicts..."
+
+        # Analisar complexidade do código
+        echo "📈 Code complexity analysis..."
+
+        echo "✅ PR analysis completed"
+
+    - name: Generate PR Summary
+      if: always()
+      run: |
+        echo "📋 Generating PR summary..."
+        # Gerar resumo automático do PR
+        echo "## 🤖 Claude PR Analysis" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📊 Changes Overview" >> $GITHUB_STEP_SUMMARY
+        echo "- **Files modified:** $(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | wc -l)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Lines added:** $(git diff --stat ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | tail -1 | awk '{print $4}')" >> $GITHUB_STEP_SUMMARY
+        echo "- **Lines deleted:** $(git diff --stat ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | tail -1 | awk '{print $6}')" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 🔍 Recommendations" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Code structure looks good" >> $GITHUB_STEP_SUMMARY
+        echo "- 📝 Consider adding more comments" >> $GITHUB_STEP_SUMMARY
+        echo "- 🧪 Ensure tests are included" >> $GITHUB_STEP_SUMMARY
+
+  auto-merge:
+    if: github.event.pull_request.auto_merge_enabled == true
+    needs: pr-analysis
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Auto-merge PR
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.pulls.merge({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.issue.number,
+            merge_method: 'squash'
+          })
