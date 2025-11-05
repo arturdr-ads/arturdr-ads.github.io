@@ -8,13 +8,20 @@
 # 👋 Olá! Eu sou Artur Reinhardt
 
 [![GitHub followers](https://img.shields.io/github/followers/arturdr-ads?style=for-the-badge&logo=github&logoColor=white&labelColor=171515&color=181717)](https://github.com/arturdr-ads)
-[![GitHub stars](https://img.shields.io/github/stars/arturdr-ads?style=for-the-badge&logo=github&logoColor=white&labelColor=171515&color=181717)](https://github.com/arturdr-ads)
+[![GitHub stars](https://img.shields.io/badge/GitHub-Stars-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arturdr-ads)
 
 </div>
 
 ---
 
 ## 🤖 Claude Code CLI - Sistema Otimizado
+
+Sistema Claude Code CLI organizado e otimizado para desenvolvimento profissional, baseado na documentação oficial da Anthropic.
+
+### 📖 Documentação Oficial
+- **Site Oficial**: [claude.ai/code](https://claude.ai/code)
+- **Documentação**: [docs.claude.com](https://docs.claude.com)
+- **Instalação**: `npm install -g @anthropic-ai/claude-code`
 
 ### 🚀 Uso Rápido
 
@@ -50,23 +57,43 @@
 - `ai-ml-specialist` - IA/ML e data science
 - `intelligent-router-proxy` - Roteamento dinâmico
 
-### 🔧 Comandos Disponíveis
+### 🔧 Comandos Claude Code
 
+#### Comandos Built-in
 ```bash
-/code-review          # Revisão completa de código
-/security-review      # Análise de segurança
-/architecture-review  # Arquitetura backend
-/frontend-review      # Frontend e UX
-devops-review         # DevOps e infraestrutura
-/performance-review   # Otimização de performance
-/ai-ml-analysis       # Análise IA/ML
+claude --help                    # Ajuda completa
+claude --version                # Versão do Claude Code
+claude -p "prompt"             # Executar prompt específico
+claude --headless              # Modo sem interface
+claude --mcp-debug             # Debug de servidores MCP
 ```
 
-### 🔒 Segurança
+#### Slash Commands Disponíveis
+```bash
+/code-review          # Revisão completa de código
+/security-review      # Análise de segurança OWASP Top 10
+/architecture-review  # Arquitetura backend e APIs
+/frontend-review      # Frontend e UX optimization
+/devops-review        # DevOps e infraestrutura
+/performance-review   # Otimização de performance
+/ai-ml-analysis       # Análise IA/ML e data science
+/project-setup        # Inicializar novos projetos
+/speckit.*            # Workflows de implementação
+```
 
-- Permissões gerenciadas via `.claude/settings.json`
-- Logs centralizados em `logs/`
-- Backups automáticos em `backups/`
+## 🔒 Segurança & Configuração
+
+### Configurações Claude Code
+- **Global**: `~/.claude/settings.json` - Configurações do usuário
+- **Projeto**: `.claude/settings.json` - Configurações específicas do projeto
+- **Local**: `.claude/settings.local.json` - Configurações locais (não versionadas)
+- **Instruções**: `CLAUDE.md` - Instruções específicas do projeto
+
+### Funcionalidades de Segurança
+- **Sandbox Mode**: Execução segura de comandos
+- **Tool Allowlist**: Controle de ferramentas permitidas
+- **MCP Authorization**: Servidores MCP autorizados
+- **Local Processing**: Processamento local sem compartilhamento externo
 
 ### 📊 Monitoramento & Automação
 
@@ -78,21 +105,64 @@ devops-review         # DevOps e infraestrutura
 
 ### 🛠️ Desenvolvimento
 
+#### Ferramentas Built-in
+- **Bash**: Execução de comandos shell
+- **Edit/Read/Write**: Manipulação de arquivos
+- **Task**: Agentes especializados para tarefas complexas
+- **WebFetch/WebSearch**: Pesquisa e busca web
+- **Git**: Operações de versionamento
+- **MCP Tools**: Ferramentas de servidores MCP
+
 #### Adicionar Novo Agente
 1. Criar arquivo em `~/.claude/agents/nome-do-agente.md`
 2. Atualizar `agents-minimal.json` se necessário
 3. Testar com `./scripts/test-agents.sh`
+
+#### Configurar MCP Server
+1. Adicionar configuração em `~/.claude/.mcp.json`
+2. Verificar com `./scripts/system-check.sh`
+3. Testar com `claude --mcp-debug`
 
 #### Atualizar Sistema
 1. Fazer backup: `./scripts/backup-system.sh`
 2. Atualizar Claude Code: `npm update -g @anthropic-ai/claude-code`
 3. Verificar sistema: `./scripts/system-check.sh`
 
-### 📞 Suporte
+## 🐛 Troubleshooting
+
+### Problemas Comuns
+- **MCP Connection Issues**: Use `claude --mcp-debug`
+- **Tool Permissions**: Verifique `~/.claude/settings.json`
+- **Agent Loading**: Execute `./scripts/validate-agents.sh`
+- **Performance Issues**: Use `./scripts/monitor-system.sh`
+
+### Debug Commands
+```bash
+claude --mcp-debug              # Debug MCP servers
+claude --headless -p "test"     # Teste sem interface
+./scripts/security-audit.sh     # Verificar problemas de segurança
+./scripts/auto-update.sh        # Atualizar e corrigir sistema
+```
+
+## 📚 Referências
+
+### Documentação Oficial
+- [Claude Code Docs](https://docs.claude.com/en/docs/claude-code)
+- [MCP Documentation](https://docs.claude.com/en/docs/claude-code/mcp)
+- [Agent Skills](https://docs.claude.com/en/docs/claude-code/agent-skills)
+
+### Links Úteis
+- [Anthropic Website](https://www.anthropic.com)
+- [Claude AI](https://claude.ai)
+- [GitHub Repository](https://github.com/anthropics/claude-code)
+
+## 📞 Suporte
 
 - **Documentação**: `docs/`
 - **Logs**: `logs/`
 - **Verificação**: `./scripts/system-check.sh`
+- **Backup**: `./scripts/backup-system.sh`
+- **Monitoramento**: `./scripts/monitor-system.sh`
 
 ---
 
