@@ -1,0 +1,45 @@
+# Claude Code System Git Ignore
+
+# Logs
+logs/*
+*.log
+
+# Backups
+backups/*
+*.tar.gz
+
+# Cache and temporary files
+.cache/
+*.tmp
+*.temp
+
+# Environment files with secrets
+.env
+.env.local
+.env.*.local
+
+# Claude Code internal files (managed by system)
+.claude.json
+.claude.json.*
+
+# MCP installed packages
+.claude/mcp-installed/
+
+# Agent logs
+.claude/agents/logs/
+
+# System-specific files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+*~
+
+# Project-specific ignores (add below)
+# claude-agents-management/.claude/

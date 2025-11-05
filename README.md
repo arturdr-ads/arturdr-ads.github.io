@@ -103,6 +103,15 @@ Plataforma modular e universal para gerenciamento centralizado do ecossistema MC
 
 ---
 
+### 🤖 **Claude Code CLI - Sistema Otimizado**
+[![Projeto](https://img.shields.io/badge/🤖-Ver_Projeto-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arturdr-ads/arturdr-ads.github.io/tree/main/Claude)
+
+Sistema Claude Code CLI organizado e otimizado para desenvolvimento profissional com automação GitHub Actions.
+
+**Tecnologias:** Claude Code CLI, GitHub Actions, MCP Servers, AI Agents
+
+---
+
 ## 🎯 Habilidades & Especialidades
 
 ### 🚀 **Desenvolvimento Web**
