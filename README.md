@@ -25,6 +25,18 @@ Claude/
 
 # Fazer backup
 ./scripts/backup-system.sh
+
+# Monitorar sistema
+./scripts/monitor-system.sh
+
+# Auditoria de segurança
+./scripts/security-audit.sh
+
+# Atualização automática
+./scripts/auto-update.sh
+
+# Validação de agentes
+./scripts/validate-agents.sh
 ```
 
 ## 📋 Agentes Principais
@@ -54,11 +66,13 @@ devops-review         # DevOps e infraestrutura
 - Logs centralizados em `logs/`
 - Backups automáticos em `backups/`
 
-## 📊 Monitoramento
+## 📊 Monitoramento & Automação
 
-- Logs detalhados com timestamps
-- Verificação automática do sistema
-- Métricas de performance
+- **Monitoramento**: Logs detalhados com timestamps e métricas de performance
+- **Segurança**: Auditoria automática de permissões e configurações
+- **Backup**: Sistema automatizado de backup e recuperação
+- **Validação**: Verificação contínua de agentes e configurações
+- **Atualização**: Sistema automático de atualização e manutenção
 
 ## 🛠️ Desenvolvimento
 
