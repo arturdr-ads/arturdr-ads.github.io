@@ -1,6 +1,6 @@
 name: Static Site CI/CD Pipeline
 
-on:
+"on":
   push:
     branches: [ main ]
   pull_request:
@@ -176,18 +176,16 @@ jobs:
         cp *.png *.jpg *.jpeg *.gif *.svg *.ico _site/ 2>/dev/null || echo "No image files found"
         cp *.json *.xml *.txt *.md _site/ 2>/dev/null || echo "No other files found"
 
-        # Generate a simple sitemap
-        cat > _site/sitemap.xml << 'EOF'
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://arturdr-ads.github.io/</loc>
-        <lastmod>${{ github.event.head_commit.timestamp }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-</urlset>
-EOF
+        # Generate a simple sitemap using echo
+        echo '<?xml version="1.0" encoding="UTF-8"?>' > _site/sitemap.xml
+        echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> _site/sitemap.xml
+        echo '    <url>' >> _site/sitemap.xml
+        echo '        <loc>https://arturdr-ads.github.io/</loc>' >> _site/sitemap.xml
+        echo "        <lastmod>${{ github.event.head_commit.timestamp }}</lastmod>" >> _site/sitemap.xml
+        echo '        <changefreq>weekly</changefreq>' >> _site/sitemap.xml
+        echo '        <priority>1.0</priority>' >> _site/sitemap.xml
+        echo '    </url>' >> _site/sitemap.xml
+        echo '</urlset>' >> _site/sitemap.xml
 
         # List contents for verification
         echo "📁 Site contents:"
